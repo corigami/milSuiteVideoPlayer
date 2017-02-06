@@ -1,0 +1,445 @@
+<!--
+    HTML5 video player widget for milsuite.
+
+    -->
+
+<!DOCTYPE html>
+<html lang="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML5 Video Widget</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- <link type="text/css" rel="stylesheet" href="style2.css"> -->
+<style>
+    #afit-main {
+        width: 100%;
+        max-width: 900px;
+        margin:  0 auto;
+    }
+    
+    #afit-content-container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start
+
+    }
+    
+    #afit-main-header {
+        min-height: 30px;
+        width: 100%;
+        background: #EEE;
+        border-radius: 10px;
+        border: 1px solid #014171;
+        margin: 5px auto;
+        height: auto;
+        margin: 0 auto;
+        padding: auto;
+        text-align: center;
+        font-size: 2em;
+    }
+    
+    #afit-menu-container {
+        vertical-align: top;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 150px;
+        min-width: 150px;
+    }
+    
+    #afit-vid-container {
+        flex: auto;
+        margin: 0 auto;
+    }
+    
+    #afit-vid-player {
+        width: 100% !important;
+    }
+    
+    .afit-lesson-container {
+        background-color: #FFF;
+        width: auto;
+        height: auto;
+    }
+    
+    .afit-lesson-item {
+        background-color: #DDD;
+        height: auto;
+        width: auto;
+        border: solid;
+        padding: 4px;
+        border-radius: 5px;
+    }
+    
+    .afit-lesson-item:hover {
+        background-color: #CCC;
+    }
+    
+    .afit-module-item {
+        background-color: #BBD;
+        text-align: left;
+        height: auto;
+        border-radius: 3px;
+        border: 1px solid #014171;
+        padding: 5px;
+        margin: 0px 0 0 10px;
+    }
+    
+    .afit-module-item:hover {
+        background-color: #99F;
+    }
+    
+    .afit-selected {
+        background-color: #77F;
+    }
+    
+    .drop-shadow {
+        box-shadow: 20px 20px;
+    }
+
+</style>
+<div id="afit-main">
+    <header id="afit-main-header">
+        Software Testing
+    </header>
+    <div id="afit-content-container">
+        <nav id="afit-menu-container" class="nav">
+        </nav>
+        <div id="afit-vid-container">
+            <video id="afit-vid-player" width="640" height="480" controls>
+                <source src="" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+</div>
+<script>
+    /*global $,document*/
+    var helperVar = {
+        LessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' + '</div></div>',
+        ModuleItem: '<div class="afit-module-item">%text%</div>'
+    };
+
+    var currentLesson;
+    var LESSONS = [{
+        title: "Intro to Software Testing",
+        module: [{
+            text: "Test Track",
+            link: "Slide 10.mp4",
+            milTube: "test.vtt"
+        },{
+            text: "Purpose of Software Testing",
+            link: "Slide 10.mp4",
+            milTube: "myVTT.vtt"
+        }, {
+            text: "Errors, Faults and Failures",
+            link: "12222016-125353-1134495098-1-400.mp4",
+            milTube: ""
+        }, {
+            text: "Software Quality",
+            link: "12222016-125353-1134495098-1-600.mp4",
+            milTube: ""
+        }, {
+            text: "Verification and Validation",
+            link: "12222016-125353-1134495098-1-800.mp4",
+            milTube: ""
+        }, {
+            text: "Categories, Types, Levels, and Limits of Testing",
+            link: "12222016-125353-1134495098-1-1000.mp4",
+            milTube: ""
+        }]
+    }, {
+        title: "Product Reviews and QA",
+        module: [{
+            text: "Software QA and Testing",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Types of Faults",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Fault Handling Approaches and Economics",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Code Reviews",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Effectiveness and Applicability to Pre-code Artifacts",
+            link: "",
+            milTube: ""
+        }]
+    }, {
+        title: "Testing Strategies",
+        module: [{
+            text: "Setting the Stage",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Unit Testing",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Integration Testing",
+            link: "",
+            milTube: ""
+        }, {
+            text: "System Testing",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Acceptance Testing",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Regression and Installation Testing",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Independant Verification and Validation",
+            link: "",
+            milTube: ""
+        }]
+    }, {
+        title: "Functional Testing",
+        module: [{
+            text: "Boundary Value Analysis",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Equivalence Partioning",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Decision Tables",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Other Techniques",
+            link: "",
+            milTube: ""
+        }]
+    }, {
+        title: "Structural Testing",
+        module: [{
+            text: "Code Coverage",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Data FLow Coverage",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Function Coverage",
+            link: "",
+            milTube: ""
+        }]
+    }, {
+        title: "Test Planning and Execution",
+        module: [{
+            text: "Assessing Software Quality Risk",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Developing A Test Plan",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Managing Test Execution",
+            link: "",
+            milTube: ""
+        }, {
+            text: "Bug Tracking",
+            link: "",
+            milTube: ""
+        }]
+    }, {
+        title: "Software Testing and Tools",
+        module: [{
+            text: "Software Testing Tools",
+            link: "",
+            milTube: ""
+        }]
+    }, {
+        title: "Test Driven Development",
+        module: [{
+            text: "TDD Example",
+            link: "08222016-111615-147696729-1-692.mp4",
+            milTube: "https://www.milsuite.mil/video/watch/video/13537"
+        }]
+    }];
+
+    //build the navigation menu dynamically from items in our LESSONS variable.
+    function buildMenu() {
+        //var navElement = $('#menulist');
+        var navElement = $('#afit-menu-container');
+
+        LESSONS.forEach(function(lesson) {
+            var FORMATTED_LESSON = helperVar.LessonItem.replace('%text%', lesson.title);
+            navElement.append(FORMATTED_LESSON);
+            var lessonElement = $('.afit-lesson-container:last');
+            lesson.module.forEach(function(mod) {
+                var FORMATTED_MODULE = helperVar.ModuleItem.replace('%text%', mod.text);
+                lessonElement.append(FORMATTED_MODULE);
+                var modElement = $('.afit-module-item:last');
+                modElement.click(function(e) {
+                    loadVideo(mod);
+                    $('.afit-selected').removeClass("afit-selected");
+                    modElement.addClass("afit-selected");
+                    e.stopPropagation();
+                });
+            });
+            lessonElement.click(function(e) {
+                toggleModules(lessonElement);
+
+                e.stopPropagation();
+            });
+        });
+    }
+
+    function toggleModules(lesson) {
+        $('.afit-module-item').hide(500);
+        if (currentLesson != lesson) {
+            lesson.children('.afit-module-item').show(500);
+            currentLesson = lesson;
+        } else {
+            currentLesson = null;
+        }
+    }
+
+    /**
+     * Get HTML asynchronously
+     * @param  {String}   url      The URL to get HTML from
+     * @param  {Function} callback A callback funtion. Pass in "response" variable to use returned HTML.
+     */
+    var getHTML = function(url, callback) {
+
+        // Feature detection
+        if (!window.XMLHttpRequest) return;
+
+        // Create new request
+        var xhr = new XMLHttpRequest();
+
+        // Setup callback
+        xhr.onload = function() {
+            if (callback && typeof(callback) === 'function') {
+                callback(this.responseXML);
+            }
+        }
+
+        // Get the HTML
+        xhr.open('GET', url);
+        xhr.responseType = 'document';
+        xhr.send();
+
+    };
+
+    function loadVideo(mod) {
+        var videoFile = mod.link;
+        var videoPlayer = $('#afit-vid-player');
+
+        //delete track if already present
+        if(document.querySelector('track')){
+            document.querySelector('track').remove();
+        }
+
+         if(mod.text=="Test Track"){ //load test.vtt for local test file.
+            var track = document.createElement("track"); 
+                track.kind = "captions"; 
+                track.label = "English"; 
+                track.srclang = "en"; 
+                track.src = "test.vtt"; 
+                track.mode = "showing"; 
+               videoPlayer[0].appendChild(track);
+        }else{
+            getHTML(mod.milTube, function(response) {
+                var captionVTT = response.querySelector('#video_milTubecript_control').textContent;
+                loadCaption(captionVTT);
+                var videos = $('#video_share_control')
+            });
+        }
+
+
+
+        $('#afit-main-header').html(mod.text + '<br>milTube link: <a target="blank" href='+mod.milTube+'>link</a>');
+        videoPlayer.attr('src', videoFile);
+        videoPlayer[0].load();
+        videoPlayer.get(0).play();
+    }
+
+    function loadCaption(captionText) {
+        // http://www.html5rocks.com/en/tutorials/track/basics/
+        // https://www.iandevlin.com/blog/2015/02/javascript/dynamically-adding-text-tracks-to-html5-video
+        var video = document.querySelector('video');
+        var track = video.addTextTrack('subtitles', "English", "en");
+       
+        //track.mode = "showing";
+        quick_and_dirty_vtt_or_srt_parser(captionText).map(function(cue) {
+            track.addCue(cue);
+        });
+    }
+
+    function loadPlayer() {
+        buildMenu();
+        $('.afit-module-item').hide();
+    }
+
+    function parse_timestamp(s) {
+        var match = s.match(/^(?:([0-9]{2,}):)?([0-5][0-9]):([0-5][0-9][.,][0-9]{0,3})/);
+        if (match == null) {
+            throw 'Invalid timestamp format: ' + s;
+        }
+        var hours = parseInt(match[1] || "0", 10);
+        var minutes = parseInt(match[2], 10);
+        var seconds = parseFloat(match[3].replace(',', '.'));
+        return seconds + 60 * minutes + 60 * 60 * hours;
+    }
+
+    function quick_and_dirty_vtt_or_srt_parser(vtt) {
+        var lines = vtt.trim().replace('\r\n', '\n').split(/[\r\n]/).map(function(line) {
+            return line.trim();
+        });
+        var cues = [];
+        var start = null;
+        var end = null;
+        var payload = null;
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].indexOf('-->') >= 0) {
+                var splitted = lines[i].split(/[ \t]+-->[ \t]+/);
+                if (splitted.length != 2) {
+                    throw 'Error when splitting "-->": ' + lines[i];
+                }
+
+                // Already ignoring anything past the "end" timestamp (i.e. cue settings).
+                start = parse_timestamp(splitted[0]);
+                end = parse_timestamp(splitted[1]);
+            } else if (lines[i] == '') {
+                if (start && end) {
+                    var cue;
+                    try {
+                        cue = new window.VTTCue(start, end, payload);
+                    } catch (e) {
+                        cue = new window.TextTrackCue(start, end, payload);
+                    }
+
+                    cues.push(cue);
+                    start = null;
+                    end = null;
+                    payload = null;
+                }
+            } else if (start && end) {
+                if (payload == null) {
+                    payload = lines[i];
+                } else {
+                    payload += '\n' + lines[i];
+                }
+            }
+        }
+        return cues;
+    }
+
+    $(document).ready(loadPlayer());
+
+</script>
+
+</html>
