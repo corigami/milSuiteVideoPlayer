@@ -1,28 +1,24 @@
-<!--
-    HTML5 video player widget for milsuite.
-
-    -->
-
 <!DOCTYPE html>
 <html lang="">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HTML5 Video Widget</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- <link type="text/css" rel="stylesheet" href="style2.css"> -->
 <style>
     #afit-main {
         width: 100%;
-        max-width: 900px;
+        max-width: 800px;
         margin:  0 auto;
+        height: 100%;
     }
-    
-    #afit-content-container {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start
 
+    #afit-content-container {
+		display: flex;
+        flex-wrap: nowrap;
+        height: 100%;
     }
-    
+
     #afit-main-header {
         min-height: 30px;
         width: 100%;
@@ -30,67 +26,62 @@
         border-radius: 10px;
         border: 1px solid #014171;
         margin: 5px auto;
-        height: auto;
-        margin: 0 auto;
         padding: auto;
         text-align: center;
-        font-size: 2em;
+        font-size: 1.5em;
     }
-    
+
     #afit-menu-container {
+   		 height: 80%;
         vertical-align: top;
         overflow-y: auto;
         overflow-x: hidden;
         width: 150px;
         min-width: 150px;
     }
-    
+
     #afit-vid-container {
-        flex: auto;
         margin: 0 auto;
     }
-    
+
     #afit-vid-player {
         width: 100% !important;
     }
-    
+
     .afit-lesson-container {
         background-color: #FFF;
         width: auto;
-        height: auto;
     }
-    
+
     .afit-lesson-item {
         background-color: #DDD;
-        height: auto;
         width: auto;
-        border: solid;
-        padding: 4px;
-        border-radius: 5px;
+        border: solid 1px;
+        padding: 3px;
+        border-radius: 4px;
     }
-    
+
     .afit-lesson-item:hover {
         background-color: #CCC;
     }
-    
+
     .afit-module-item {
         background-color: #BBD;
         text-align: left;
-        height: auto;
-        border-radius: 3px;
+        border-radius: 2px;
         border: 1px solid #014171;
-        padding: 5px;
-        margin: 0px 0 0 10px;
+        padding: 2px;
+        margin: 0 0 1px 10px;
     }
-    
+
     .afit-module-item:hover {
         background-color: #99F;
     }
-    
+
     .afit-selected {
         background-color: #77F;
     }
-    
+
     .drop-shadow {
         box-shadow: 20px 20px;
     }
@@ -98,15 +89,15 @@
 </style>
 <div id="afit-main">
     <header id="afit-main-header">
-        Software Testing
+        Software Testing<br><br>
     </header>
     <div id="afit-content-container">
-        <nav id="afit-menu-container" class="nav">
+        <nav id="afit-menu-container">
         </nav>
         <div id="afit-vid-container">
             <video id="afit-vid-player" width="640" height="480" controls>
                 <source src="" type="video/mp4" />
-                Your browser does not support the video tag.
+                <track id="afit-vid-cctrack" label="English" kind="captions" srclang="en-us" src="" default/> Your browser does not support the video tag.
             </video>
         </div>
     </div>
@@ -119,18 +110,7 @@
     };
 
     var currentLesson;
-    var LESSONS = [
-//*****************************REMOVE BEFORE UPLOAD**********************************        
-        {
-        title: "Test Group",
-        module: [{
-            text: "Test Track",
-            link: "Slide 10.mp4",
-            milTube: "test.vtt"
-        }]
-    },
-//*****************************REMOVE BEFORE UPLOAD**********************************            
-    {
+    var LESSONS = [{
         title: "Intro to Software Testing",
         module: [{
             text: "Purpose of Software Testing",
@@ -275,6 +255,7 @@
             milTube: "13537"
         }]
     }];
+
     //build the navigation menu dynamically from items in our LESSONS variable.
     function buildMenu() {
         //var navElement = $('#menulist');
@@ -341,45 +322,22 @@
     };
 
     function loadVideo(mod) {
-        
-                //delete track if already present
-        if(document.querySelector('track')){
-            document.querySelector('track').remove();
-        }
-        //*******REMOVE BEFORE UPLOAD*********** 
-       // var videoFile = mod.link;
-       // var videoPlayer = $('#afit-vid-player');
-        //********REMOVE BEFORE UPLOAD***********   
         var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
         var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
+
         var videoPlayer = $('#afit-vid-player');
-
-         if(mod.text=="Test Track"){ //load test.vtt for local test file.
-             videoFile = mod.link;
-            var track = document.createElement("track"); 
-                track.kind = "captions"; 
-                track.label = "English"; 
-                track.srclang = "en"; 
-                track.src = "test.vtt"; 
-                track.mode = "showing"; 
-             
-               videoPlayer[0].appendChild(track);
-        }else{
-            getHTML(milTubeLink, function(response) {
-                var transcript = response.querySelector('#video_transcript_control');
-                if(response.querySelector('#video_transcript_control') != null){
-                    var captionVTT = response.querySelector('#video_transcript_control').textContent;
-                    if(captionVTT != null || captionVTT != ""){
-                        loadCaption(captionVTT);
-                    }
-                }
+        getHTML(milTubeLink, function(response) {
+        	var transcript = response.querySelector('#video_transcript_control');
+        	if(response.querySelector('#video_transcript_control') != null){
+            var captionVTT = response.querySelector('#video_transcript_control').textContent;
+            if(captionVTT != null || captionVTT != ""){
+           	 loadCaption(captionVTT);
+            }
+            }
             //var videos = $('#video_share_control')
-            });
-        }
+        });
 
-
-
-       $('#afit-main-header').html(mod.text + "<br>milTube link: <a target='blank' href='"+ milTubeLink + "'>"+ mod.text +"</a>");
+        $('#afit-main-header').html(mod.text + "<br>milTube link: <a target='blank' href='"+ milTubeLink + "'>"+ mod.text +"</a>");
         videoPlayer.attr('src', videoFile);
         videoPlayer[0].load();
         videoPlayer.get(0).play();
@@ -390,8 +348,7 @@
         // https://www.iandevlin.com/blog/2015/02/javascript/dynamically-adding-text-tracks-to-html5-video
         var video = document.querySelector('video');
         var track = video.addTextTrack('captions', "English", "en");
-       
-        //track.mode = "showing";
+        track.mode = "showing";
         quick_and_dirty_vtt_or_srt_parser(captionText).map(function(cue) {
             track.addCue(cue);
         });
@@ -459,5 +416,4 @@
     $(document).ready(loadPlayer());
 
 </script>
-
 </html>

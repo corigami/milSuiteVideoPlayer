@@ -119,18 +119,7 @@
     };
 
     var currentLesson;
-    var LESSONS = [
-//*****************************REMOVE BEFORE UPLOAD**********************************        
-        {
-        title: "Test Group",
-        module: [{
-            text: "Test Track",
-            link: "Slide 10.mp4",
-            milTube: "test.vtt"
-        }]
-    },
-//*****************************REMOVE BEFORE UPLOAD**********************************            
-    {
+    var LESSONS = [{
         title: "Intro to Software Testing",
         module: [{
             text: "Purpose of Software Testing",
@@ -275,6 +264,7 @@
             milTube: "13537"
         }]
     }];
+
     //build the navigation menu dynamically from items in our LESSONS variable.
     function buildMenu() {
         //var navElement = $('#menulist');
@@ -350,29 +340,27 @@
        // var videoFile = mod.link;
        // var videoPlayer = $('#afit-vid-player');
         //********REMOVE BEFORE UPLOAD***********   
-        var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
+      var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
         var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
         var videoPlayer = $('#afit-vid-player');
 
          if(mod.text=="Test Track"){ //load test.vtt for local test file.
-             videoFile = mod.link;
             var track = document.createElement("track"); 
                 track.kind = "captions"; 
                 track.label = "English"; 
                 track.srclang = "en"; 
                 track.src = "test.vtt"; 
                 track.mode = "showing"; 
-             
                videoPlayer[0].appendChild(track);
         }else{
             getHTML(milTubeLink, function(response) {
-                var transcript = response.querySelector('#video_transcript_control');
-                if(response.querySelector('#video_transcript_control') != null){
-                    var captionVTT = response.querySelector('#video_transcript_control').textContent;
-                    if(captionVTT != null || captionVTT != ""){
-                        loadCaption(captionVTT);
-                    }
-                }
+        	var transcript = response.querySelector('#video_transcript_control');
+        	if(response.querySelector('#video_transcript_control') != null){
+            var captionVTT = response.querySelector('#video_transcript_control').textContent;
+            if(captionVTT != null || captionVTT != ""){
+           	 loadCaption(captionVTT);
+            }
+            }
             //var videos = $('#video_share_control')
             });
         }
