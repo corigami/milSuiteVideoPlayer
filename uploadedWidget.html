@@ -33,15 +33,17 @@
     
     #afit-menu-container {
         vertical-align: top;
-        overflow-y: auto;
+        overflow-y: scroll;
         overflow-x: hidden;
         width: 150px;
         min-width: 150px;
+        max-height:500px;
     }
     
     #afit-vid-container {
         flex: auto;
         margin: 0 auto;
+        height: 100%;
     }
     
     #afit-vid-player {
@@ -328,20 +330,16 @@
         var videoPlayer = $('#afit-vid-player');
         var vidContainer = $('#afit-vid-container');
         if (videoPlayer.length != 0) {
-            console.log(videoPlayer);
             videoPlayer.fadeOut(500, function() {
-                console.log("here3");
                 vidContainer.empty();
                 loadVideo(mod);
             });
         } else {
-            console.log("here3.5");
             loadVideo(mod);
         }
     }
 
     function loadVideo(mod) {
-        console.log("here4");
         var vidContainer = $('#afit-vid-container');
         vidContainer.append(helperVar.VIDEO);
         var videoPlayer = $('#afit-vid-player');
