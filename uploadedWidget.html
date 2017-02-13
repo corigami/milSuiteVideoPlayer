@@ -1,8 +1,4 @@
-<!--
-    HTML5 video player widget for milsuite.
-
-    -->
-
+<!-- HTML5 video player widget for milsuite. -->
 <!DOCTYPE html>
 <html lang="">
 <meta charset="utf-8">
@@ -47,14 +43,13 @@
         overflow-x: hidden;
         min-width: 210px;
         max-height: 500px;
-  
     }
     
     #afit-vid-container {
         margin: 0 auto;
         height: 100%;
-        min-height:520px;
-              display:flex;
+        min-height: 520px;
+        display: flex;
     }
     
     #afit-vid-player {
@@ -121,7 +116,8 @@
 <script>
     /*global $,document*/
     var helperVar = {
-        lessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' + '</div></div>',
+        lessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' +
+            '</div></div>',
         moduleItem: '<div class="afit-module-item">%text%</div>',
         VIDEO: '<video id="afit-vid-player" width="640" height="480" controls hidden>' +
             '<source src="" type="video/mp4" />' +
@@ -129,155 +125,74 @@
             '</video>'
     }
     var currentLesson;
-    var LESSONS = [
-        //*****************************REMOVE BEFORE UPLOAD**********************************        
-        //*****************************REMOVE BEFORE UPLOAD**********************************            
-        {
-            title: "Intro to Software Testing",
-            module: [{
-                text: "Purpose of Software Testing",
-                link: "03112016-134817-1071365442-1-349.mp4",
-                milTube: "11553"
-            }, {
-                text: "Errors, Faults and Failures",
-                link: "03112016-135012-116208741-1-281.mp4",
-                milTube: "11554"
-            }, {
-                text: "Software Quality",
-                link: "03112016-135224-1809607656-1-441.mp4",
-                milTube: "11555"
-            }, {
-                text: "Categories, Types, Levels, and Limits of Testing",
-                link: "03252016-133625-763221133-1-489.mp4",
-                milTube: "11718"
-            }, {
-                text: "Verification and Validation",
-                link: "03252016-133656-594125888-1-357.mp4",
-                milTube: "11719"
-            }]
+    //********************paste in lesson object here*****************************
+    var LESSONS = [{
+        title: "Requirements",
+        module: [{
+            text: "Engineering Resilience into AF Systems",
+            link: "02102017-155113-245170002-1-306.mp4",
+            milTube: "15185"
         }, {
-            title: "Product Reviews and QA",
-            module: [{
-                text: "Software QA and Testing",
-                link: "03252016-134406-730158133-1-301.mp4",
-                milTube: "11720"
-            }, {
-                text: "Types of Faults",
-                link: "03252016-134526-110651402-1-431.mp4",
-                milTube: "11721"
-            }, {
-                text: "Fault Handling Approaches and Economics",
-                link: "03252016-134826-569896349-1-600.mp4",
-                milTube: "11722"
-            }, {
-                text: "Code Reviews",
-                link: "03252016-134942-1313563431-1-579.mp4",
-                milTube: "11723"
-            }, {
-                text: "Effectiveness and Applicability to Pre-code Artifacts",
-                link: "03252016-135109-629200385-1-600.mp4",
-                milTube: "11724"
-            }]
+            text: "Ethnography in Requirements Engineering",
+            link: "02102017-154329-279217441-1-600.mp4",
+            milTube: "15181"
+        }]
+    }, {
+        title: "Design",
+        module: [{
+            text: "No videos yet",
+            link: "#",
+            milTube: "#"
+        }]
+    }, {
+        title: "Implementation",
+        module: [{
+            text: "No videos yet",
+            link: "#",
+            milTube: "#"
+        }]
+    }, {
+        title: "Testing",
+        module: [{
+            text: "No videos yet",
+            link: "#",
+            milTube: "#"
+        }]
+    }, {
+        title: "Maintenance",
+        module: [{
+            text: "Developing a Custom Software Maintenance Model",
+            link: "02102017-153041-115709483-1-600.mp4",
+            milTube: "15182"
+        }]
+    }, {
+        title: "Agile",
+        module: [{
+            text: "Integrating Agile",
+            link: "02102017-155608-2009788801-1-368.mp4",
+            milTube: "15184"
         }, {
-            title: "Testing Strategies",
-            module: [{
-                text: "Setting the Stage",
-                link: "04042016-100745-516838468-1-515.mp4",
-                milTube: "11790"
-            }, {
-                text: "Unit Testing",
-                link: "07182016-112102-913622322-1-600.mp4",
-                milTube: "13103"
-            }, {
-                text: "Integration Testing",
-                link: "07182016-113810-292244187-1-600.mp4",
-                milTube: "13105"
-            }, {
-                text: "System Testing",
-                link: "04042016-111908-1015763518-1-379.mp4",
-                milTube: "11792"
-            }, {
-                text: "Acceptance Testing",
-                link: "07192016-102425-1832062724-1-600.mp4",
-                milTube: "13165"
-            }, {
-                text: "Regression and Installation Testing",
-                link: "04042016-112128-2064602769-1-385.mp4",
-                milTube: "11794"
-            }, {
-                text: "IV and When to Stop",
-                link: "04042016-112219-1653115425-1-583.mp4",
-                milTube: "11795"
-            }]
+            text: "Agile in the DoD",
+            link: "02102017-154830-1445243687-1-109.mp4",
+            milTube: "15184"
+        }]
+    }, {
+        title: "Other",
+        module: [{
+            text: "AF Insider Threat System Development",
+            link: "02102017-154639-60323132-1-600.mp4",
+            milTube: "15186"
         }, {
-            title: "Functional Testing",
-            module: [{
-                text: "Boundary Value Analysis",
-                link: "04042016-112537-943794841-1-600.mp4",
-                milTube: "11796"
-            }, {
-                text: "Equivalence Partioning",
-                link: "07192016-110049-559763040-1-600.mp4",
-                milTube: "13244"
-            }, {
-                text: "Decision Tables",
-                link: "04042016-112722-1007659156-1-600.mp4",
-                milTube: "11798"
-            }, {
-                text: "Other Techniques",
-                link: "04042016-112821-918188658-1-600.mp4",
-                milTube: "11799"
-            }]
+            text: "SWE Abuse Cases 1",
+            link: "12212016-143408-1005928052-1-600.mp4",
+            milTube: "14663"
         }, {
-            title: "Structural Testing",
-            module: [{
-                text: "Code Coverage",
-                link: "04062016-124535-503542870-1-600.mp4",
-                milTube: "11840"
-            }, {
-                text: "Data FLow Coverage",
-                link: "04062016-124622-1007040509-1-536.mp4",
-                milTube: "11841"
-            }, {
-                text: "Function Coverage",
-                link: "04062016-124658-681000776-1-600.mp4",
-                milTube: "11842"
-            }]
-        }, {
-            title: "Test Planning and Execution",
-            module: [{
-                text: "Assessing Software Quality Risk",
-                link: "04052016-084544-1273110561-1-600.mp4",
-                milTube: "11805"
-            }, {
-                text: "Developing A Test Plan",
-                link: "04052016-084707-2066994483-1-600.mp4",
-                milTube: "11806"
-            }, {
-                text: "Managing Test Execution",
-                link: "04052016-084846-507818581-1-600.mp4",
-                milTube: "11807"
-            }, {
-                text: "Bug Tracking",
-                link: "04052016-085057-576888042-1-600.mp4",
-                milTube: "11810"
-            }]
-        }, {
-            title: "Software Testing and Tools",
-            module: [{
-                text: "Software Testing Tools",
-                link: "04072016-085613-174872497-1-600.mp4",
-                milTube: "11863"
-            }]
-        }, {
-            title: "Test Driven Development",
-            module: [{
-                text: "TDD Example",
-                link: "08222016-111615-147696729-1-692.mp4",
-                milTube: "13537"
-            }]
-        }
-    ];
+            text: "Search Based SWE",
+            link: "12212016-143025-733077140-1-374.mp4",
+            milTube: "14659"
+        }]
+    }];
+    //********************end lesson object**************************************
     //build the navigation menu dynamically from items in our LESSONS variable.
     function buildMenu() {
         //var navElement = $('#menulist');
@@ -311,10 +226,10 @@
 
     function toggleModules(lesson) {
         $('.afit-module-item').hide(500);
-         //$('.afit-lesson-item').removeClass('drop-shadow');
+        //$('.afit-lesson-item').removeClass('drop-shadow');
         if (currentLesson != lesson) {
             //lesson.children(':first-child').addClass('drop-shadow');
-            lesson.children('.afit-module-item').show(500);    
+            lesson.children('.afit-module-item').show(500);
             currentLesson = lesson;
         } else {
             currentLesson = null;
@@ -370,9 +285,9 @@
             if (document.querySelector('track')) {
                 document.querySelector('track').remove();
             }
-            var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
+            var videoFile =  "https://www.milsuite.mil/videos/vod/" + mod.link; 
             var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
-             //load test.vtt for local test file.
+            //load test.vtt for local test file.
             if (mod.text.substr(0, 10) == "Test Track") {
                 videoFile = mod.link;
                 var track = document.createElement("track");
@@ -382,7 +297,7 @@
                 track.src = mod.milTube;
                 track.mode = "showing";
                 videoPlayer[0].appendChild(track);
-            } else if(mod.milTube != "") {
+            } else if (mod.milTube != "") {
                 getHTML(milTubeLink, function(response) {
                     var transcript = response.querySelector('#video_transcript_control');
                     if (response.querySelector('#video_transcript_control') != null) {
@@ -393,7 +308,8 @@
                     }
                     //var videos = $('#video_share_control')
                 });
-                 $('#afit-main-header').html(mod.text + "<br>milTube link: <a target='blank' href='" + milTubeLink + "'>" + mod.text + "</a>");
+                $('#afit-main-header').html(mod.text + "<br>milTube link: <a target='blank' href='" +
+                    milTubeLink + "'>" + mod.text + "</a>");
             }
             videoPlayer.attr('src', videoFile);
             videoPlayer[0].load();
