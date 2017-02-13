@@ -10,16 +10,21 @@
 <title>HTML5 Video Widget</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
+    body{
+        margin: 0 auto;
+    }
+
     #afit-main {
         width: 100%;
-        max-width: 900px;
+        max-width: 1000px;
         margin: 0 auto;
+        font-family: Arial, Helvetica, sans-serif;
     }
     
     #afit-content-container {
         display: flex;
         flex-wrap: nowrap;
-        align-items: flex-start
+        align-items: flex-start;
     }
     
     #afit-main-header {
@@ -40,24 +45,25 @@
         vertical-align: top;
         overflow-y: scroll;
         overflow-x: hidden;
-        width: 150px;
-        min-width: 150px;
+        min-width: 210px;
         max-height:500px;
     }
     
     #afit-vid-container {
-        flex: auto;
+
         margin: 0 auto;
         height: 100%;
     }
     
     #afit-vid-player {
         width: 100% !important;
+        max-width: 700px;
     }
     
     .afit-lesson-container {
         background-color: #FFF;
         width: auto;
+        min-width: 180px;
         height: auto;
     }
     
@@ -65,8 +71,9 @@
         background-color: #DDD;
         height: auto;
         width: auto;
+        min-width: 178px;
         border: solid;
-        padding: 4px;
+        padding: 5px;
         border-radius: 5px;
     }
     
@@ -75,25 +82,28 @@
     }
     
     .afit-module-item {
-        background-color: #BBD;
+        background-color: #1F45FC;
+        color: #FFF;
         text-align: left;
         height: auto;
-        border-radius: 3px;
-        border: 1px solid #014171;
-        padding: 5px;
+        padding: 6px;
+        max-width: 180px;
         margin: 0px 0 0 10px;
+        z-index:-1;
     }
     
     .afit-module-item:hover {
-        background-color: #99F;
+        background-color: #6698FF;
     }
     
     .afit-selected {
-        background-color: #77F;
+        background-color: #6698FF;
     }
     
     .drop-shadow {
-        box-shadow: 20px 20px;
+        box-shadow: 0 3px 6px 2px #444;
+        z-index:10;
+        position: relative;
     }
 </style>
 <div id="afit-main">
@@ -309,8 +319,10 @@
 
     function toggleModules(lesson) {
         $('.afit-module-item').hide(500);
+        lesson.children(':first-child').removeClass('drop-shadow');
         if (currentLesson != lesson) {
             lesson.children('.afit-module-item').show(500);
+            lesson.children(':first-child').addClass('drop-shadow');
             currentLesson = lesson;
         } else {
             currentLesson = null;
@@ -348,19 +360,17 @@
         var videoPlayer = $('#afit-vid-player');
         var vidContainer = $('#afit-vid-container');
         if(videoPlayer.length!=0){
-            console.log(videoPlayer);
             videoPlayer.fadeOut(500, function(){
                 console.log("here3");
                 vidContainer.empty();
                 loadVideo(mod);
             });
-        }else{console.log("here3.5");
+        }else{
             loadVideo(mod);
         }
     }
 
     function loadVideo(mod) {
-        console.log("here4");
         var vidContainer = $('#afit-vid-container');
         vidContainer.append(helperVar.VIDEO);
         var videoPlayer = $('#afit-vid-player');
