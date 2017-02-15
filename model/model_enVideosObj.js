@@ -37,6 +37,10 @@
                 text: "Developing a Custom Software Maintenance Model",
                 link: "02102017-153041-115709483-1-600.mp4",
                 milTube: "15182"
+            },{
+                text: "Software Refactoring",
+                link: "02142017-151020-1897249512-1-600.mp4",
+                milTube: "15215"
             }]
         },
         {
@@ -58,13 +62,17 @@
                 link: "02102017-154639-60323132-1-600.mp4",
                 milTube: "15186"
             },{
-                text: "SWE Abuse Cases 1",
-                link: "12212016-143408-1005928052-1-600.mp4",
-                milTube: "14663"
+                text: "Process Mining",
+                link: "02142017-144912-1097665519-1-600.mp4",
+                milTube: "15214"
             },{
                 text: "Search Based SWE",
                 link: "12212016-143025-733077140-1-374.mp4",
                 milTube: "14659"
+            },{
+                text: "SWE Abuse Cases 1",
+                link: "12212016-143408-1005928052-1-600.mp4",
+                milTube: "14663"
             }]
         }
     ];
