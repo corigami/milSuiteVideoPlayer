@@ -1,398 +1,495 @@
-<!-- HTML5 video player widget for milsuite. -->
+<!--
+    HTML5 video player widget for milsuite.
+
+    -->
 <!DOCTYPE html>
 <html lang="">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HTML5 Video Widget</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
-    body {
-        margin: 0 auto;
-    }
-    
-    #afit-main {
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    #afit-content-container {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-    }
-    
-    #afit-main-header {
-        min-height: 30px;
-        width: 100%;
-        background: #EEE;
-        border-radius: 10px;
-        border: 1px solid #014171;
-        margin: 5px auto;
-        height: auto;
-        margin: 0 auto;
-        padding: auto;
-        text-align: center;
-        font-size: 2em;
-    }
-    
-    #afit-menu-container {
-        vertical-align: top;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        min-width: 210px;
-        max-height: 500px;
-    }
-    
-    #afit-vid-container {
-        margin: 0 auto;
-        height: 100%;
-        min-height: 520px;
-        display: flex;
-    }
-    
-    #afit-vid-player {
-        width: 100% !important;
-    }
-    
-    .afit-lesson-container {
-        background-color: #FFF;
-        width: auto;
-        min-width: 180px;
-        height: auto;
-    }
-    
-    .afit-lesson-item {
-        background-color: #DDD;
-        height: auto;
-        width: auto;
-        min-width: 178px;
-        border: solid;
-        padding: 5px;
-        border-radius: 5px;
-    }
-    
-    .afit-lesson-item:hover {
-        background-color: #CCC;
-    }
-    
-    .afit-module-item {
-        background-color: #1F45FC;
-        color: #FFF;
-        text-align: left;
-        height: auto;
-        padding: 6px;
-        max-width: 192px;
-        margin: 0px 0 0 10px;
-        z-index: -1;
-    }
-    
-    .afit-module-item:hover {
-        background-color: #6698FF;
-    }
-    
-    .afit-selected {
-        background-color: #6698FF;
-    }
-    
-    .drop-shadow {
-        box-shadow: 0 3px 6px 2px #444;
-        z-index: 10;
-        position: relative;
-    }
+body {
+	margin: 0 auto;
+}
+#afit-main {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	font-family: 'Roboto', sans-serif !important;
+}
+#afit-content-container {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+}
+#afit-main-header {
+	
+	width: 100%;	
+	border-radius: 10px;
+	border: 1px solid #014171;
+	margin: 5px auto;
+	height: 70px;
+	margin: 0 auto;
+	padding: auto;
+	text-align: center;
+	font-size: 2em;
+	color: white;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f6b98+1,2c5885+100 */
+	background: #608ebd; /* Old browsers */
+	background: -moz-linear-gradient(#608ebd 1%, #2c5885 100%);
+	background: -webkit-linear-gradient(#608ebd 1%, #2c5885 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.01, #608ebd), to(#2c5885));
+	background: -o-linear-gradient(#608ebd 1%, #2c5885 100%);
+	background: linear-gradient(#608ebd 1%, #2c5885 100%);
+	 /* FF3.6-15 */
+	 /* Chrome10-25,Safari5.1-6 */
+	 /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f6b98', endColorstr='#2c5885',GradientType=0 ); /* IE6-9 */
+
+}
+#afit-menu-container {
+	vertical-align: top;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	min-width: 210px;
+	max-height: 500px;
+	margin-top:1px
+}
+#afit-vid-container {
+	margin: 0 auto;
+	padding-top:20px
+	
+}
+#afit-vid-player {
+	margin: 0 auto;
+	width: auto;
+}
+#link {
+	font-family: 'Roboto', sans-serif !important;
+	font-size: .4em;
+	text-align: center;
+	display:block;
+	color: white;
+	
+}
+.afit-lesson-container {
+	background-color: #FFF;
+	width: auto;
+	min-width: 180px;
+	height: auto;
+	margin-top: 1px
+}
+.afit-lesson-item {
+	background-color: #DDD;
+	height: auto;
+	width: auto;
+	min-width: 178px;
+	border: solid thin;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 1px 1px;
+	cursor: pointer
+}
+.afit-lesson-item:hover {
+	background-color: #CCC;
+}
+.afit-module-item {
+	font-size: .9em;
+	background-color: #325e8b;
+	color: #FFF;
+	text-align: left;
+	height: auto;
+	padding: 6px;
+	max-width: 192px;
+	margin: 1px 0 1px 10px;
+	z-index: -1;
+	border-radius: 5px;
+	font-family: 'Roboto Light', sans-serif !important;
+	cursor: pointer
+}
+.afit-module-item:hover {
+	background-color: #608ebd;
+}
+.afit-selected {
+	background-color: #608ebd;
+}
+.drop-shadow {
+	box-shadow: 0 3px 6px 2px #444;
+	z-index: 10;
+	position: relative;
+}
+a:link {
+	color: #FFFFFF;
+}
+a:visited {
+	color: #FFFFFF;
+}
+a:hover {
+	color: #FFFFFF;
+}
+a:active {
+	color: #FFFFFF;
+}
 </style>
 <div id="afit-main">
-    <header id="afit-main-header">
-        Software Testing
-    </header>
-    <div id="afit-content-container">
-        <nav id="afit-menu-container" class="nav">
-        </nav>
-        <div id="afit-vid-container">
-        </div>
-    </div>
+  <header id="afit-main-header"> Software Testing <span id="link"></span></header>
+  <div id="afit-content-container">
+    <nav id="afit-menu-container" class="nav"> </nav>
+    <div id="afit-vid-container"></div>
+    <div id="afit-miltube-link" class="miltube-link"></div> 
+  </div>
+ 
 </div>
 <script>
     /*global $,document*/
     var helperVar = {
-        lessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' +
-            '</div></div>',
-        moduleItem: '<div class="afit-module-item">%text%</div>',
-        VIDEO: '<video id="afit-vid-player" width="640" height="480" controls hidden>' +
-            '<source src="" type="video/mp4" />' +
-            'Your browser does not support the video tag.' +
-            '</video>'
-    }
-    var currentLesson;
-    //********************paste in lesson object here*****************************
-    var LESSONS = [{
-        title: "Requirements",
-        module: [{
-            text: "Engineering Resilience into AF Systems",
-            link: "02102017-155113-245170002-1-306.mp4",
-            milTube: "15185"
-        }, {
-            text: "Ethnography in Requirements Engineering",
-            link: "02102017-154329-279217441-1-600.mp4",
-            milTube: "15181"
-        }]
-    }, {
-        title: "Design",
-        module: [{
-            text: "No videos yet",
-            link: "#",
-            milTube: "#"
-        }]
-    }, {
-        title: "Implementation",
-        module: [{
-            text: "No videos yet",
-            link: "#",
-            milTube: "#"
-        }]
-    }, {
-        title: "Testing",
-        module: [{
-            text: "No videos yet",
-            link: "#",
-            milTube: "#"
-        }]
-    }, {
-        title: "Maintenance",
-        module: [{
-            text: "Developing a Custom Software Maintenance Model",
-            link: "02102017-153041-115709483-1-600.mp4",
-            milTube: "15182"
-        }]
-    }, {
-        title: "Agile",
-        module: [{
-            text: "Integrating Agile",
-            link: "02102017-155608-2009788801-1-368.mp4",
-            milTube: "15184"
-        }, {
-            text: "Agile in the DoD",
-            link: "02102017-154830-1445243687-1-109.mp4",
-            milTube: "15184"
-        }]
-    }, {
-        title: "Other",
-        module: [{
-            text: "AF Insider Threat System Development",
-            link: "02102017-154639-60323132-1-600.mp4",
-            milTube: "15186"
-        }, {
-            text: "SWE Abuse Cases 1",
-            link: "12212016-143408-1005928052-1-600.mp4",
-            milTube: "14663"
-        }, {
-            text: "Search Based SWE",
-            link: "12212016-143025-733077140-1-374.mp4",
-            milTube: "14659"
-        }]
-    }];
-    //********************end lesson object**************************************
-    //build the navigation menu dynamically from items in our LESSONS variable.
-    function buildMenu() {
-        //var navElement = $('#menulist');
-        var navElement = $('#afit-menu-container');
+    lessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' +
+        '</div></div>',
+    moduleItem: '<div class="afit-module-item">%text%</div>',
+    VIDEO: '<video id="afit-vid-player" controls hidden>' +
+        '<source src="" type="video/mp4" />' +
+        'Your browser does not support the video tag.' +
+        '</video>'
+}
+var currentLesson;
+//********************paste in lesson object here*****************************
+    var LESSONS = [
+        {
+            title: "Requirements",
+            module: [{
+                text: "Engineering Resilience into AF Systems",
+                link: "02102017-155113-245170002-1-306.mp4",
+                milTube: "15185"
+            },{
+                text: "Ethnography in Requirements Engineering",
+                link: "02102017-154329-279217441-1-600.mp4",
+                milTube: "15181"
+            }]
+        },{
+            title: "Design",
+            module: [{
+                text: "No videos yet",
+                link: "#",
+                milTube: "#"
+            }]
+        },{
+            title: "Implementation",
+            module: [{
+                text: "No videos yet",
+                link: "#",
+                milTube: "#"
+            }]
+        },{
+            title: "Testing",
+            module: [{
+                text: "No videos yet",
+                link: "#",
+                milTube: "#"
+            }]
+        },{
+            title: "Maintenance",
+            module: [{
+                text: "Developing a Custom Software Maintenance Model",
+                link: "02102017-153041-115709483-1-600.mp4",
+                milTube: "15182"
+            }]
+        },
+        {
+            title: "Agile",
+            module: [{
+                text: "Integrating Agile",
+                link: "02102017-155608-2009788801-1-368.mp4",
+                milTube: "15184"
+            },{
+                text: "Agile in the DoD",
+                link: "02102017-154830-1445243687-1-109.mp4",
+                milTube: "15184"
+            }]
+        },
+        {
+            title: "Other",
+            module: [{
+                text: "AF Insider Threat System Development",
+                link: "02102017-154639-60323132-1-600.mp4",
+                milTube: "15186"
+            },{
+                text: "SWE Abuse Cases 1",
+                link: "12212016-143408-1005928052-1-600.mp4",
+                milTube: "14663"
+            },{
+                text: "Search Based SWE",
+                link: "12212016-143025-733077140-1-374.mp4",
+                milTube: "14659"
+            }]
+        }
+    ];
+//********************end lesson object**************************************
+//build the navigation menu dynamically from items in our LESSONS variable.
+function buildMenu()
+{
+    //var navElement = $('#menulist');
+    var navElement = $('#afit-menu-container');
 
-        LESSONS.forEach(function(lesson) {
-            var FORMATTED_LESSON = helperVar.lessonItem.replace('%text%', lesson.title);
-            navElement.append(FORMATTED_LESSON);
-            var lessonElement = $('.afit-lesson-container:last');
-            lesson.module.forEach(function(mod) {
-                var FORMATTED_MODULE = helperVar.moduleItem.replace('%text%', mod.text);
-                lessonElement.append(FORMATTED_MODULE);
-                var modElement = $('.afit-module-item:last');
-                modElement.click(function(e) {
-                    initVideoPlayer(mod);
-                    $('.afit-selected').removeClass("afit-selected");
-                    modElement.addClass("afit-selected");
-                    e.stopPropagation();
-                });
-            });
-            lessonElement.click(function(e) {
-                navElement.animate({
-                    scrollTop: lessonElement.offset().top - 40
-                }, 500);
-                toggleModules(lessonElement);
-
+    LESSONS.forEach(function (lesson)
+    {
+        var FORMATTED_LESSON = helperVar.lessonItem.replace('%text%', lesson.title);
+        navElement.append(FORMATTED_LESSON);
+        var lessonElement = $('.afit-lesson-container:last');
+        lesson.module.forEach(function (mod)
+        {
+            var FORMATTED_MODULE = helperVar.moduleItem.replace('%text%', mod.text);
+            lessonElement.append(FORMATTED_MODULE);
+			
+            var modElement = $('.afit-module-item:last');
+			
+            modElement.click(function (e)
+            {
+                initVideoPlayer(mod);
+                $('.afit-selected')
+                    .removeClass("afit-selected");
+                modElement.addClass("afit-selected");
                 e.stopPropagation();
             });
         });
-    }
-
-    function toggleModules(lesson) {
-        $('.afit-module-item').hide(500);
-        //$('.afit-lesson-item').removeClass('drop-shadow');
-        if (currentLesson != lesson) {
-            //lesson.children(':first-child').addClass('drop-shadow');
-            lesson.children('.afit-module-item').show(500);
-            currentLesson = lesson;
-        } else {
-            currentLesson = null;
-        }
-    }
-
-    /**
-     * Get HTML asynchronously
-     * @param  {String}   url      The URL to get HTML from
-     * @param  {Function} callback A callback funtion. Pass in "response" variable to use returned HTML.
-     */
-    var getHTML = function(url, callback) {
-
-        // Feature detection
-        if (!window.XMLHttpRequest) return;
-
-        // Create new request
-        var xhr = new XMLHttpRequest();
-
-        // Setup callback
-        xhr.onload = function() {
-            if (callback && typeof(callback) === 'function') {
-                callback(this.responseXML);
-            }
-        }
-
-        // Get the HTML
-        xhr.open('GET', url);
-        xhr.responseType = 'document';
-        xhr.send();
-
-    };
-
-    function initVideoPlayer(mod) {
-        var videoPlayer = $('#afit-vid-player');
-        var vidContainer = $('#afit-vid-container');
-        if (videoPlayer.length != 0) {
-            videoPlayer.fadeOut(500, function() {
-                vidContainer.empty();
-                loadVideo(mod);
-            });
-        } else {
-            loadVideo(mod);
-        }
-    }
-
-    function loadVideo(mod) {
-        var vidContainer = $('#afit-vid-container');
-        vidContainer.append(helperVar.VIDEO);
-        var videoPlayer = $('#afit-vid-player');
-        videoPlayer.fadeIn(500, function() {
-            //delete track if already present
-            if (document.querySelector('track')) {
-                document.querySelector('track').remove();
-            }
-            var videoFile =  "https://www.milsuite.mil/videos/vod/" + mod.link; 
-            var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
-            //load test.vtt for local test file.
-            if (mod.text.substr(0, 10) == "Test Track") {
-                videoFile = mod.link;
-                var track = document.createElement("track");
-                track.kind = "captions";
-                track.label = "English";
-                track.srclang = "en";
-                track.src = mod.milTube;
-                track.mode = "showing";
-                videoPlayer[0].appendChild(track);
-            } else if (mod.milTube != "") {
-                getHTML(milTubeLink, function(response) {
-                    var transcript = response.querySelector('#video_transcript_control');
-                    if (response.querySelector('#video_transcript_control') != null) {
-                        var captionVTT = response.querySelector('#video_transcript_control').textContent;
-                        if (captionVTT != null || captionVTT != "") {
-                            loadCaption(captionVTT);
-                        }
-                    }
-                    //var videos = $('#video_share_control')
-                });
-                $('#afit-main-header').html(mod.text + "<br>milTube link: <a target='blank' href='" +
-                    milTubeLink + "'>" + mod.text + "</a>");
-            }
-            videoPlayer.attr('src', videoFile);
-            videoPlayer[0].load();
-            videoPlayer.get(0).play();
+        lessonElement.click(function (e)
+        {
+            navElement.animate(
+            {
+                scrollTop: lessonElement.offset()
+                    .top - 40
+            }, 500);
+            toggleModules(lessonElement);
+            e.stopPropagation();
         });
+    });
+}
 
+function toggleModules(lesson)
+{
+    $('.afit-module-item')
+        .hide(500);
+    //$('.afit-lesson-item').removeClass('drop-shadow');
+    if (currentLesson != lesson)
+    {
+        //lesson.children(':first-child').addClass('drop-shadow');
+        lesson.children('.afit-module-item')
+            .show(500);
+        currentLesson = lesson;
+    }
+    else
+    {
+        currentLesson = null;
+    }
+}
 
+/**
+ * Get HTML asynchronously
+ * @param  {String}   url      The URL to get HTML from
+ * @param  {Function} callback A callback funtion. Pass in "response" variable to use returned HTML.
+ */
+var getHTML = function (url, callback)
+{
+
+    // Feature detection
+    if (!window.XMLHttpRequest) return;
+
+    // Create new request
+    var xhr = new XMLHttpRequest();
+
+    // Setup callback
+    xhr.onload = function ()
+    {
+        if (callback && typeof (callback) === 'function')
+        {
+            callback(this.responseXML);
+        }
     }
 
-    function loadCaption(captionText) {
-        // http://www.html5rocks.com/en/tutorials/track/basics/
-        // https://www.iandevlin.com/blog/2015/02/javascript/dynamically-adding-text-tracks-to-html5-video
-        var video = document.querySelector('video');
-        var track = video.addTextTrack('captions', "English", "en");
+    // Get the HTML
+    xhr.open('GET', url);
+    xhr.responseType = 'document';
+    xhr.send();
 
-        //track.mode = "showing";
-        quick_and_dirty_vtt_or_srt_parser(captionText).map(function(cue) {
+};
+
+function initVideoPlayer(mod)
+{
+    var videoPlayer = $('#afit-vid-player');
+    var vidContainer = $('#afit-vid-container');
+    if (videoPlayer.length != 0)
+    {
+        videoPlayer.fadeOut(500, function ()
+        {
+            vidContainer.empty();
+            loadVideo(mod);
+        });
+    }
+    else
+    {
+        loadVideo(mod);
+    }
+}
+
+function loadVideo(mod)
+{
+    var vidContainer = $('#afit-vid-container');
+    vidContainer.append(helperVar.VIDEO);
+    var videoPlayer = $('#afit-vid-player');
+    videoPlayer.fadeIn(500, function ()
+    {
+        //delete track if already present
+        if (document.querySelector('track'))
+        {
+            document.querySelector('track')
+                .remove();
+        }
+        var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
+        var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
+        //load test.vtt for local test file.
+        if (mod.text.substr(0, 10) == "Test Track")
+        {
+            videoFile = mod.link;
+            var track = document.createElement("track");
+            track.kind = "captions";
+            track.label = "English";
+            track.srclang = "en";
+            track.src = mod.milTube;
+            track.mode = "showing";
+            videoPlayer[0].appendChild(track);
+        }
+        else if (mod.milTube != "")
+        {
+            getHTML(milTubeLink, function (response)
+            {
+                var transcript = response.querySelector('#video_transcript_control');
+                if (response.querySelector('#video_transcript_control') != null)
+                {
+                    var captionVTT = response.querySelector('#video_transcript_control')
+                        .textContent;
+                    if (captionVTT != null || captionVTT != "")
+                    {
+                        loadCaption(captionVTT);
+                    }
+                }
+                //var videos = $('#video_share_control')
+            });
+            $('#link')
+                .html("milTube link: <a  target='blank' href='" +
+                    milTubeLink + "'>" + mod.text + "</a>");
+        }
+        videoPlayer.attr('src', videoFile);
+        videoPlayer[0].load();
+        videoPlayer.get(0)
+            .play();
+    });
+
+
+}
+
+function loadCaption(captionText)
+{
+    // http://www.html5rocks.com/en/tutorials/track/basics/
+    // https://www.iandevlin.com/blog/2015/02/javascript/dynamically-adding-text-tracks-to-html5-video
+    var video = document.querySelector('video');
+    var track = video.addTextTrack('captions', "English", "en");
+
+    //track.mode = "showing";
+    quick_and_dirty_vtt_or_srt_parser(captionText)
+        .map(function (cue)
+        {
             track.addCue(cue);
         });
-    }
+}
 
-    function loadPlayer() {
-        buildMenu();
-        $('.afit-module-item').hide();
-    }
+function loadPlayer()
+{
+    buildMenu();
+    $('.afit-module-item')
+        .hide();
+}
 
-    function parse_timestamp(s) {
-        var match = s.match(/^(?:([0-9]{2,}):)?([0-5][0-9]):([0-5][0-9][.,][0-9]{0,3})/);
-        if (match == null) {
-            throw 'Invalid timestamp format: ' + s;
-        }
-        var hours = parseInt(match[1] || "0", 10);
-        var minutes = parseInt(match[2], 10);
-        var seconds = parseFloat(match[3].replace(',', '.'));
-        return seconds + 60 * minutes + 60 * 60 * hours;
+function parse_timestamp(s)
+{
+    var match = s.match(/^(?:([0-9]{2,}):)?([0-5][0-9]):([0-5][0-9][.,][0-9]{0,3})/);
+    if (match == null)
+    {
+        throw 'Invalid timestamp format: ' + s;
     }
+    var hours = parseInt(match[1] || "0", 10);
+    var minutes = parseInt(match[2], 10);
+    var seconds = parseFloat(match[3].replace(',', '.'));
+    return seconds + 60 * minutes + 60 * 60 * hours;
+}
 
-    function quick_and_dirty_vtt_or_srt_parser(vtt) {
-        var lines = vtt.trim().replace('\r\n', '\n').split(/[\r\n]/).map(function(line) {
+function quick_and_dirty_vtt_or_srt_parser(vtt)
+{
+    var lines = vtt.trim()
+        .replace('\r\n', '\n')
+        .split(/[\r\n]/)
+        .map(function (line)
+        {
             return line.trim();
         });
-        var cues = [];
-        var start = null;
-        var end = null;
-        var payload = null;
-        for (var i = 0; i < lines.length; i++) {
-            if (lines[i].indexOf('-->') >= 0) {
-                var splitted = lines[i].split(/[ \t]+-->[ \t]+/);
-                if (splitted.length != 2) {
-                    throw 'Error when splitting "-->": ' + lines[i];
+    var cues = [];
+    var start = null;
+    var end = null;
+    var payload = null;
+    for (var i = 0; i < lines.length; i++)
+    {
+        if (lines[i].indexOf('-->') >= 0)
+        {
+            var splitted = lines[i].split(/[ \t]+-->[ \t]+/);
+            if (splitted.length != 2)
+            {
+                throw 'Error when splitting "-->": ' + lines[i];
+            }
+
+            // Already ignoring anything past the "end" timestamp (i.e. cue settings).
+            start = parse_timestamp(splitted[0]);
+            end = parse_timestamp(splitted[1]);
+        }
+        else if (lines[i] == '')
+        {
+            if (start && end)
+            {
+                var cue;
+                try
+                {
+                    cue = new window.VTTCue(start, end, payload);
+                }
+                catch (e)
+                {
+                    cue = new window.TextTrackCue(start, end, payload);
                 }
 
-                // Already ignoring anything past the "end" timestamp (i.e. cue settings).
-                start = parse_timestamp(splitted[0]);
-                end = parse_timestamp(splitted[1]);
-            } else if (lines[i] == '') {
-                if (start && end) {
-                    var cue;
-                    try {
-                        cue = new window.VTTCue(start, end, payload);
-                    } catch (e) {
-                        cue = new window.TextTrackCue(start, end, payload);
-                    }
+                cues.push(cue);
+                start = null;
+                end = null;
 
-                    cues.push(cue);
-                    start = null;
-                    end = null;
-                    payload = null;
-                }
-            } else if (start && end) {
-                if (payload == null) {
-                    payload = lines[i];
-                } else {
-                    payload += '\n' + lines[i];
-                }
+                payload = null;
             }
         }
-        return cues;
+        else if (start && end)
+        {
+            if (payload == null)
+            {
+                payload = lines[i];
+            }
+            else
+            {
+                payload += '\n' + lines[i];
+            }
+        }
     }
+    return cues;
+}
 
-    function loadVideoPlayer() {}
+function loadVideoPlayer()
+{}
 
-    $(document).ready(loadPlayer());
+$(document)
+    .ready(loadPlayer());
+
 </script>
-
-</html>

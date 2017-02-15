@@ -10,599 +10,669 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
-body {
-	margin: 0 auto;
-}
-#afit-main {
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	font-family: 'Roboto', sans-serif !important;
-}
-#afit-content-container {
-	display: flex;
-	flex-wrap: nowrap;
-	align-items: flex-start;
-}
-#afit-main-header {
-	
-	width: 100%;	
-	border-radius: 10px;
-	border: 1px solid #014171;
-	margin: 5px auto;
-	height: 70px;
-	margin: 0 auto;
-	padding: auto;
-	text-align: center;
-	font-size: 2em;
-	color: white;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f6b98+1,2c5885+100 */
-	background: #608ebd; /* Old browsers */
-	background: -moz-linear-gradient(#608ebd 1%, #2c5885 100%);
-	background: -webkit-linear-gradient(#608ebd 1%, #2c5885 100%);
-	background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.01, #608ebd), to(#2c5885));
-	background: -o-linear-gradient(#608ebd 1%, #2c5885 100%);
-	background: linear-gradient(#608ebd 1%, #2c5885 100%);
-	 /* FF3.6-15 */
-	 /* Chrome10-25,Safari5.1-6 */
-	 /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f6b98', endColorstr='#2c5885',GradientType=0 ); /* IE6-9 */
-
-}
-#afit-menu-container {
-	vertical-align: top;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	min-width: 210px;
-	max-height: 500px;
-	margin-top:1px
-}
-#afit-vid-container {
-	margin: 0 auto;
-	padding-top:20px
-	
-}
-#afit-vid-player {
-	margin: 0 auto;
-	width: auto;
-}
-#link {
-	font-family: 'Roboto', sans-serif !important;
-	font-size: .4em;
-	text-align: center;
-	display:block;
-	color: white;
-	
-}
-.afit-lesson-container {
-	background-color: #FFF;
-	width: auto;
-	min-width: 180px;
-	height: auto;
-	margin-top: 1px
-}
-.afit-lesson-item {
-	background-color: #DDD;
-	height: auto;
-	width: auto;
-	min-width: 178px;
-	border: solid thin;
-	padding: 5px;
-	border-radius: 5px;
-	margin: 1px 1px;
-	cursor: pointer
-}
-.afit-lesson-item:hover {
-	background-color: #CCC;
-}
-.afit-module-item {
-	font-size: .9em;
-	background-color: #325e8b;
-	color: #FFF;
-	text-align: left;
-	height: auto;
-	padding: 6px;
-	max-width: 192px;
-	margin: 1px 0 1px 10px;
-	z-index: -1;
-	border-radius: 5px;
-	font-family: 'Roboto Light', sans-serif !important;
-	cursor: pointer
-}
-.afit-module-item:hover {
-	background-color: #608ebd;
-}
-.afit-selected {
-	background-color: #608ebd;
-}
-.drop-shadow {
-	box-shadow: 0 3px 6px 2px #444;
-	z-index: 10;
-	position: relative;
-}
-a:link {
-	color: #FFFFFF;
-}
-a:visited {
-	color: #FFFFFF;
-}
-a:hover {
-	color: #FFFFFF;
-}
-a:active {
-	color: #FFFFFF;
-}
+    body {
+        margin: 0 auto;
+    }
+    
+    #afit-main {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        font-family: 'Roboto', sans-serif !important;
+    }
+    
+    #afit-content-container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+    
+    #afit-main-header {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #014171;
+        margin: 5px auto;
+        height: 70px;
+        margin: 0 auto;
+        padding: auto;
+        text-align: center;
+        font-size: 2em;
+        color: white;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f6b98+1,2c5885+100 */
+        background: #608ebd;
+        /* Old browsers */
+        background: -moz-linear-gradient(#608ebd 1%, #2c5885 100%);
+        background: -webkit-linear-gradient(#608ebd 1%, #2c5885 100%);
+        background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.01, #608ebd), to(#2c5885));
+        background: -o-linear-gradient(#608ebd 1%, #2c5885 100%);
+        background: linear-gradient(#608ebd 1%, #2c5885 100%);
+        /* FF3.6-15 */
+        /* Chrome10-25,Safari5.1-6 */
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f6b98', endColorstr='#2c5885', GradientType=0);
+        /* IE6-9 */
+        /*box-shadow: 3px 3px 5px gray;
+	z-index:200;*/
+    }
+    
+    #afit-menu-container {
+        vertical-align: top;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        min-width: 210px;
+        max-height: 500px;
+        margin-top: 1px
+    }
+    
+    #afit-vid-container {
+        margin: 0 auto;
+        padding-top: 20px
+    }
+    
+    #afit-vid-player {
+        margin: 0 auto;
+        width: auto;
+    }
+    
+    #link {
+        font-family: 'Roboto', sans-serif !important;
+        font-size: .4em;
+        text-align: center;
+        display: block;
+        color: white;
+    }
+    
+    .afit-lesson-container {
+        background-color: #FFF;
+        width: auto;
+        min-width: 180px;
+        height: auto;
+        margin-top: 1px
+    }
+    
+    .afit-lesson-item {
+        background-color: #DDD;
+        height: auto;
+        width: auto;
+        min-width: 178px;
+        border: solid thin;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 1px 1px;
+        cursor: pointer
+    }
+    
+    .afit-lesson-item:hover {
+        background-color: #CCC;
+    }
+    
+    .afit-module-item {
+        font-size: .9em;
+        background-color: #325e8b;
+        color: #FFF;
+        text-align: left;
+        height: auto;
+        padding: 6px;
+        max-width: 192px;
+        margin: 1px 0 1px 10px;
+        z-index: -1;
+        border-radius: 5px;
+        font-family: 'Roboto Light', sans-serif !important;
+        cursor: pointer
+    }
+    
+    .afit-module-item:hover {
+        background-color: #608ebd;
+    }
+    
+    .afit-selected {
+        background-color: #608ebd;
+    }
+    
+    .drop-shadow {
+        box-shadow: 0 3px 6px 2px #444;
+        z-index: 10;
+        position: relative;
+    }
+    
+    a:link {
+        color: #FFFFFF;
+    }
+    
+    a:visited {
+        color: #FFFFFF;
+    }
+    
+    a:hover {
+        color: #FFFFFF;
+    }
+    
+    a:active {
+        color: #FFFFFF;
+    }
+    
+    #tip {
+        font-family: 'Roboto Light', sans-serif !important;
+        font-size: .8em;
+        text-align: center;
+        line-height: 20px;
+        width: auto;
+        height: auto;
+        padding: 1px 5px 1px 5px;
+        position: absolute;
+        border-radius: 5px;
+        border: solid thin #697ea5;
+        background-color: #ffffff;
+        box-shadow: 3px 3px 5px gray;
+        z-index: 3000;
+        visibility: hidden;
+    }
 </style>
 <div id="afit-main">
-  <header id="afit-main-header"> Software Testing <span id="link"></span></header>
-  <div id="afit-content-container">
-    <nav id="afit-menu-container" class="nav"> </nav>
-    <div id="afit-vid-container"></div>
-    <div id="afit-miltube-link" class="miltube-link"></div> 
-  </div>
- 
+    <header id="afit-main-header"> Software Testing <span id="link"></span></header>
+    <div id="afit-content-container">
+        <nav id="afit-menu-container" class="nav"> </nav>
+        <div id="afit-vid-container"></div>
+        <div id="afit-miltube-link" class="miltube-link"></div>
+    </div>
 </div>
 <script>
+    var moduleTip = null;
     /*global $,document*/
     var helperVar = {
-    lessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' +
-        '</div></div>',
-    moduleItem: '<div class="afit-module-item">%text%</div>',
-    VIDEO: '<video id="afit-vid-player" controls hidden>' +
-        '<source src="" type="video/mp4" />' +
-        'Your browser does not support the video tag.' +
-        '</video>'
-}
-var currentLesson;
-//********************paste in lesson object here*****************************
-var LESSONS = [
-{
-    title: "Intro to Software Testing",
-    module: [
-    {
-        text: "Purpose of Software Testing",
-        link: "03112016-134817-1071365442-1-349.mp4",
-        milTube: "11553"
-    },
-    {
-        text: "Errors, Faults and Failures",
-        link: "03112016-135012-116208741-1-281.mp4",
-        milTube: "11554"
-    },
-    {
-        text: "Software Quality",
-        link: "03112016-135224-1809607656-1-441.mp4",
-        milTube: "11555"
-    },
-    {
-        text: "Categories, Types, Levels, and Limits of Testing",
-        link: "03252016-133625-763221133-1-489.mp4",
-        milTube: "11718"
-    },
-    {
-        text: "Verification and Validation",
-        link: "03252016-133656-594125888-1-357.mp4",
-        milTube: "11719"
-    }]
-},
-{
-    title: "Product Reviews and QA",
-    module: [
-    {
-        text: "Software QA and Testing",
-        link: "03252016-134406-730158133-1-301.mp4",
-        milTube: "11720"
-    },
-    {
-        text: "Types of Faults",
-        link: "03252016-134526-110651402-1-431.mp4",
-        milTube: "11721"
-    },
-    {
-        text: "Fault Handling Approaches and Economics",
-        link: "03252016-134826-569896349-1-600.mp4",
-        milTube: "11722"
-    },
-    {
-        text: "Code Reviews",
-        link: "03252016-134942-1313563431-1-579.mp4",
-        milTube: "11723"
-    },
-    {
-        text: "Effectiveness and Applicability to Pre-code Artifacts",
-        link: "03252016-135109-629200385-1-600.mp4",
-        milTube: "11724"
-    }]
-},
-{
-    title: "Testing Strategies",
-    module: [
-    {
-        text: "Setting the Stage",
-        link: "04042016-100745-516838468-1-515.mp4",
-        milTube: "11790"
-    },
-    {
-        text: "Unit Testing",
-        link: "07182016-112102-913622322-1-600.mp4",
-        milTube: "13103"
-    },
-    {
-        text: "Integration Testing",
-        link: "07182016-113810-292244187-1-600.mp4",
-        milTube: "13105"
-    },
-    {
-        text: "System Testing",
-        link: "04042016-111908-1015763518-1-379.mp4",
-        milTube: "11792"
-    },
-    {
-        text: "Acceptance Testing",
-        link: "07192016-102425-1832062724-1-600.mp4",
-        milTube: "13165"
-    },
-    {
-        text: "Regression and Installation Testing",
-        link: "04042016-112128-2064602769-1-385.mp4",
-        milTube: "11794"
-    },
-    {
-        text: "IV and When to Stop",
-        link: "04042016-112219-1653115425-1-583.mp4",
-        milTube: "11795"
-    }]
-},
-{
-    title: "Functional Testing",
-    module: [
-    {
-        text: "Boundary Value Analysis",
-        link: "04042016-112537-943794841-1-600.mp4",
-        milTube: "11796"
-    },
-    {
-        text: "Equivalence Partioning",
-        link: "07192016-110049-559763040-1-600.mp4",
-        milTube: "13244"
-    },
-    {
-        text: "Decision Tables",
-        link: "04042016-112722-1007659156-1-600.mp4",
-        milTube: "11798"
-    },
-    {
-        text: "Other Techniques",
-        link: "04042016-112821-918188658-1-600.mp4",
-        milTube: "11799"
-    }]
-},
-{
-    title: "Structural Testing",
-    module: [
-    {
-        text: "Code Coverage",
-        link: "04062016-124535-503542870-1-600.mp4",
-        milTube: "11840"
-    },
-    {
-        text: "Data FLow Coverage",
-        link: "04062016-124622-1007040509-1-536.mp4",
-        milTube: "11841"
-    },
-    {
-        text: "Function Coverage",
-        link: "04062016-124658-681000776-1-600.mp4",
-        milTube: "11842"
-    }]
-},
-{
-    title: "Test Planning and Execution",
-    module: [
-    {
-        text: "Assessing Software Quality Risk",
-        link: "04052016-084544-1273110561-1-600.mp4",
-        milTube: "11805"
-    },
-    {
-        text: "Developing A Test Plan",
-        link: "04052016-084707-2066994483-1-600.mp4",
-        milTube: "11806"
-    },
-    {
-        text: "Managing Test Execution",
-        link: "04052016-084846-507818581-1-600.mp4",
-        milTube: "11807"
-    },
-    {
-        text: "Bug Tracking",
-        link: "04052016-085057-576888042-1-600.mp4",
-        milTube: "11810"
-    }]
-},
-{
-    title: "Software Testing and Tools",
-    module: [
-    {
-        text: "Software Testing Tools",
-        link: "04072016-085613-174872497-1-600.mp4",
-        milTube: "11863"
-    }]
-},
-{
-    title: "Test Driven Development",
-    module: [
-    {
-        text: "TDD Example",
-        link: "08222016-111615-147696729-1-692.mp4",
-        milTube: "13537"
-    }]
-}];
-//********************end lesson object**************************************
-//build the navigation menu dynamically from items in our LESSONS variable.
-function buildMenu()
-{
-    //var navElement = $('#menulist');
-    var navElement = $('#afit-menu-container');
-
-    LESSONS.forEach(function (lesson)
-    {
-        var FORMATTED_LESSON = helperVar.lessonItem.replace('%text%', lesson.title);
-        navElement.append(FORMATTED_LESSON);
-        var lessonElement = $('.afit-lesson-container:last');
-        lesson.module.forEach(function (mod)
+        lessonItem: '<div class="afit-lesson-container">' + '<div class="afit-lesson-item">' + '<p>%text%</p>' +
+            '</div></div>',
+        moduleItem: '<div class="afit-module-item">%text%</div>',
+        VIDEO: '<video id="afit-vid-player" controls hidden>' +
+            '<source src="" type="video/mp4" />' +
+            'Your browser does not support the video tag.' +
+            '</video>'
+    }
+    var currentLesson;
+    //********************paste in lesson object here*****************************
+    var LESSONS = [{
+            title: "Intro to Software Testing",
+            module: [{
+                    text: "Purpose of Software Testing",
+                    link: "03112016-134817-1071365442-1-349.mp4",
+                    milTube: "11553",
+                    description: "This lesson discusses the purpose of testing"
+                },
+                {
+                    text: "Errors, Faults and Failures",
+                    link: "03112016-135012-116208741-1-281.mp4",
+                    milTube: "11554",
+                    description: ""
+                },
+                {
+                    text: "Software Quality",
+                    link: "03112016-135224-1809607656-1-441.mp4",
+                    milTube: "11555",
+                    description: ""
+                },
+                {
+                    text: "Categories, Types, Levels, and Limits of Testing",
+                    link: "03252016-133625-763221133-1-489.mp4",
+                    milTube: "11718",
+                    description: ""
+                },
+                {
+                    text: "Verification and Validation",
+                    link: "03252016-133656-594125888-1-357.mp4",
+                    milTube: "11719",
+                    description: ""
+                }
+            ]
+        },
         {
-            var FORMATTED_MODULE = helperVar.moduleItem.replace('%text%', mod.text);
-            lessonElement.append(FORMATTED_MODULE);
-			
-            var modElement = $('.afit-module-item:last');
-			
-            modElement.click(function (e)
-            {
-                initVideoPlayer(mod);
-                $('.afit-selected')
-                    .removeClass("afit-selected");
-                modElement.addClass("afit-selected");
+            title: "Product Reviews and QA",
+            module: [{
+                    text: "Software QA and Testing",
+                    link: "03252016-134406-730158133-1-301.mp4",
+                    milTube: "11720",
+                    description: ""
+                },
+                {
+                    text: "Types of Faults",
+                    link: "03252016-134526-110651402-1-431.mp4",
+                    milTube: "11721",
+                    description: ""
+                },
+                {
+                    text: "Fault Handling Approaches and Economics",
+                    link: "03252016-134826-569896349-1-600.mp4",
+                    milTube: "11722",
+                    description: ""
+                },
+                {
+                    text: "Code Reviews",
+                    link: "03252016-134942-1313563431-1-579.mp4",
+                    milTube: "11723",
+                    description: ""
+                },
+                {
+                    text: "Effectiveness and Applicability to Pre-code Artifacts",
+                    link: "03252016-135109-629200385-1-600.mp4",
+                    milTube: "11724",
+                    description: ""
+                }
+            ]
+        },
+        {
+            title: "Testing Strategies",
+            module: [{
+                    text: "Setting the Stage",
+                    link: "04042016-100745-516838468-1-515.mp4",
+                    milTube: "11790",
+                    description: ""
+                },
+                {
+                    text: "Unit Testing",
+                    link: "07182016-112102-913622322-1-600.mp4",
+                    milTube: "13103",
+                    description: ""
+                },
+                {
+                    text: "Integration Testing",
+                    link: "07182016-113810-292244187-1-600.mp4",
+                    milTube: "13105",
+                    description: ""
+                },
+                {
+                    text: "System Testing",
+                    link: "04042016-111908-1015763518-1-379.mp4",
+                    milTube: "11792",
+                    description: ""
+                },
+                {
+                    text: "Acceptance Testing",
+                    link: "07192016-102425-1832062724-1-600.mp4",
+                    milTube: "13165",
+                    description: ""
+                },
+                {
+                    text: "Regression and Installation Testing",
+                    link: "04042016-112128-2064602769-1-385.mp4",
+                    milTube: "11794",
+                    description: ""
+                },
+                {
+                    text: "IV and When to Stop",
+                    link: "04042016-112219-1653115425-1-583.mp4",
+                    milTube: "11795",
+                    description: ""
+                }
+            ]
+        },
+        {
+            title: "Functional Testing",
+            module: [{
+                    text: "Boundary Value Analysis",
+                    link: "04042016-112537-943794841-1-600.mp4",
+                    milTube: "11796",
+                    description: ""
+                },
+                {
+                    text: "Equivalence Partioning",
+                    link: "07192016-110049-559763040-1-600.mp4",
+                    milTube: "13244",
+                    description: ""
+                },
+                {
+                    text: "Decision Tables",
+                    link: "04042016-112722-1007659156-1-600.mp4",
+                    milTube: "11798",
+                    description: ""
+                },
+                {
+                    text: "Other Techniques",
+                    link: "04042016-112821-918188658-1-600.mp4",
+                    milTube: "11799",
+                    description: ""
+                }
+            ]
+        },
+        {
+            title: "Structural Testing",
+            module: [{
+                    text: "Code Coverage",
+                    link: "04062016-124535-503542870-1-600.mp4",
+                    milTube: "11840",
+                    description: ""
+                },
+                {
+                    text: "Data FLow Coverage",
+                    link: "04062016-124622-1007040509-1-536.mp4",
+                    milTube: "11841",
+                    description: ""
+                },
+                {
+                    text: "Function Coverage",
+                    link: "04062016-124658-681000776-1-600.mp4",
+                    milTube: "11842",
+                    description: ""
+                }
+            ]
+        },
+        {
+            title: "Test Planning and Execution",
+            module: [{
+                    text: "Assessing Software Quality Risk",
+                    link: "04052016-084544-1273110561-1-600.mp4",
+                    milTube: "11805",
+                    description: ""
+                },
+                {
+                    text: "Developing A Test Plan",
+                    link: "04052016-084707-2066994483-1-600.mp4",
+                    milTube: "11806",
+                    description: ""
+                },
+                {
+                    text: "Managing Test Execution",
+                    link: "04052016-084846-507818581-1-600.mp4",
+                    milTube: "11807",
+                    description: ""
+                },
+                {
+                    text: "Bug Tracking",
+                    link: "04052016-085057-576888042-1-600.mp4",
+                    milTube: "11810",
+                    description: ""
+                }
+            ]
+        },
+        {
+            title: "Software Testing and Tools",
+            module: [{
+                text: "Software Testing Tools",
+                link: "04072016-085613-174872497-1-600.mp4",
+                milTube: "11863",
+                description: ""
+            }]
+        },
+        {
+            title: "Test Driven Development",
+            module: [{
+                text: "TDD Example",
+                link: "08222016-111615-147696729-1-692.mp4",
+                milTube: "13537",
+                description: ""
+            }]
+        }
+    ];
+    //********************end lesson object**************************************
+
+
+    //build the navigation menu dynamically from items in our LESSONS variable.
+    function buildMenu() {
+        //var navElement = $('#menulist');
+        var navElement = $('#afit-menu-container');
+
+        LESSONS.forEach(function (lesson) {
+            var FORMATTED_LESSON = helperVar.lessonItem.replace('%text%', lesson.title);
+            navElement.append(FORMATTED_LESSON);
+            var lessonElement = $('.afit-lesson-container:last');
+            lesson.module.forEach(function (mod) {
+                var FORMATTED_MODULE = helperVar.moduleItem.replace('%text%', mod.text);
+                lessonElement.append(FORMATTED_MODULE);
+
+                var modElement = $('.afit-module-item:last');
+                if (mod.description && mod.description != "") {
+                    modElement[0].desc = mod.description;
+                    modElement.on("mousemove", getHoverCoordinates);
+                    modElement.on("mouseout", clearHoverInterval);
+                }
+
+                modElement.click(function (e) {
+                    initVideoPlayer(mod);
+                    $('.afit-selected')
+                        .removeClass("afit-selected");
+                    modElement.addClass("afit-selected");
+                    e.stopPropagation();
+                });
+            });
+            lessonElement.click(function (e) {
+                navElement.animate({
+                    scrollTop: lessonElement.offset()
+                        .top - 40
+                }, 500);
+                toggleModules(lessonElement);
                 e.stopPropagation();
             });
         });
-        lessonElement.click(function (e)
-        {
-            navElement.animate(
-            {
-                scrollTop: lessonElement.offset()
-                    .top - 40
-            }, 500);
-            toggleModules(lessonElement);
-            e.stopPropagation();
-        });
-    });
-}
 
-function toggleModules(lesson)
-{
-    $('.afit-module-item')
-        .hide(500);
-    //$('.afit-lesson-item').removeClass('drop-shadow');
-    if (currentLesson != lesson)
-    {
-        //lesson.children(':first-child').addClass('drop-shadow');
-        lesson.children('.afit-module-item')
-            .show(500);
-        currentLesson = lesson;
+        var modTip = document.createElement('div');
+        modTip.id = 'tip';
+        //add the element to the DOM
+        document.getElementsByTagName('body')[0].appendChild(modTip);
+        //populate variable with a reference to the element
+        moduleTip = document.getElementById('tip');
     }
-    else
-    {
-        currentLesson = null;
-    }
-}
 
-/**
- * Get HTML asynchronously
- * @param  {String}   url      The URL to get HTML from
- * @param  {Function} callback A callback funtion. Pass in "response" variable to use returned HTML.
- */
-var getHTML = function (url, callback)
-{
-
-    // Feature detection
-    if (!window.XMLHttpRequest) return;
-
-    // Create new request
-    var xhr = new XMLHttpRequest();
-
-    // Setup callback
-    xhr.onload = function ()
-    {
-        if (callback && typeof (callback) === 'function')
-        {
-            callback(this.responseXML);
+    function toggleModules(lesson) {
+        $('.afit-module-item')
+            .hide(500);
+        //$('.afit-lesson-item').removeClass('drop-shadow');
+        if (currentLesson != lesson) {
+            //lesson.children(':first-child').addClass('drop-shadow');
+            lesson.children('.afit-module-item')
+                .show(500);
+            currentLesson = lesson;
+        } else {
+            currentLesson = null;
         }
     }
 
-    // Get the HTML
-    xhr.open('GET', url);
-    xhr.responseType = 'document';
-    xhr.send();
+    /**
+     * Get HTML asynchronously
+     * @param  {String}   url      The URL to get HTML from
+     * @param  {Function} callback A callback funtion. Pass in "response" variable to use returned HTML.
+     */
+    var getHTML = function (url, callback) {
 
-};
+        // Feature detection
+        if (!window.XMLHttpRequest) return;
 
-function initVideoPlayer(mod)
-{
-    var videoPlayer = $('#afit-vid-player');
-    var vidContainer = $('#afit-vid-container');
-    if (videoPlayer.length != 0)
-    {
-        videoPlayer.fadeOut(500, function ()
-        {
-            vidContainer.empty();
-            loadVideo(mod);
-        });
-    }
-    else
-    {
-        loadVideo(mod);
-    }
-}
+        // Create new request
+        var xhr = new XMLHttpRequest();
 
-function loadVideo(mod)
-{
-    var vidContainer = $('#afit-vid-container');
-    vidContainer.append(helperVar.VIDEO);
-    var videoPlayer = $('#afit-vid-player');
-    videoPlayer.fadeIn(500, function ()
-    {
-        //delete track if already present
-        if (document.querySelector('track'))
-        {
-            document.querySelector('track')
-                .remove();
+        // Setup callback
+        xhr.onload = function () {
+            if (callback && typeof (callback) === 'function') {
+                callback(this.responseXML);
+            }
         }
-        var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
-        var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
-        //load test.vtt for local test file.
-        if (mod.text.substr(0, 10) == "Test Track")
-        {
-            videoFile = mod.link;
-            var track = document.createElement("track");
-            track.kind = "captions";
-            track.label = "English";
-            track.srclang = "en";
-            track.src = mod.milTube;
-            track.mode = "showing";
-            videoPlayer[0].appendChild(track);
-        }
-        else if (mod.milTube != "")
-        {
-            getHTML(milTubeLink, function (response)
-            {
-                var transcript = response.querySelector('#video_transcript_control');
-                if (response.querySelector('#video_transcript_control') != null)
-                {
-                    var captionVTT = response.querySelector('#video_transcript_control')
-                        .textContent;
-                    if (captionVTT != null || captionVTT != "")
-                    {
-                        loadCaption(captionVTT);
-                    }
-                }
-                //var videos = $('#video_share_control')
+
+        // Get the HTML
+        xhr.open('GET', url);
+        xhr.responseType = 'document';
+        xhr.send();
+
+    };
+
+    function initVideoPlayer(mod) {
+        var videoPlayer = $('#afit-vid-player');
+        var vidContainer = $('#afit-vid-container');
+        if (videoPlayer.length != 0) {
+            videoPlayer.fadeOut(500, function () {
+                vidContainer.empty();
+                loadVideo(mod);
             });
-            $('#link')
-                .html("milTube link: <a  target='blank' href='" +
+        } else {
+            loadVideo(mod);
+        }
+    }
+
+    function loadVideo(mod) {
+        var vidContainer = $('#afit-vid-container');
+        vidContainer.append(helperVar.VIDEO);
+        var videoPlayer = $('#afit-vid-player');
+        videoPlayer.fadeIn(500, function () {
+            //delete track if already present
+            if (document.querySelector('track')) {
+                document.querySelector('track')
+                    .remove();
+            }
+            var videoFile = "https://www.milsuite.mil/videos/vod/" + mod.link;
+            var milTubeLink = "https://www.milsuite.mil/video/watch/video/" + mod.milTube;
+            //load test.vtt for local test file.
+            if (mod.text.substr(0, 10) == "Test Track") {
+                videoFile = mod.link;
+                var track = document.createElement("track");
+                track.kind = "captions";
+                track.label = "English";
+                track.srclang = "en";
+                track.src = mod.milTube;
+                track.mode = "showing";
+                videoPlayer[0].appendChild(track);
+            } else if (mod.milTube != "") {
+                getHTML(milTubeLink, function (response) {
+                    var transcript = response.querySelector('#video_transcript_control');
+                    if (response.querySelector('#video_transcript_control') != null) {
+                        var captionVTT = response.querySelector('#video_transcript_control').textContent;
+                        if (captionVTT != null || captionVTT != "") {
+                            loadCaption(captionVTT);
+                        }
+                    }
+                    //var videos = $('#video_share_control')
+                });
+                document.getElementById('afit-main-header').childNodes[0].nodeValue = mod.text;
+
+                $('#link').html("milTube link: <a  target='blank' href='" +
                     milTubeLink + "'>" + mod.text + "</a>");
-        }
-        videoPlayer.attr('src', videoFile);
-        videoPlayer[0].load();
-        videoPlayer.get(0)
-            .play();
-    });
-
-
-}
-
-function loadCaption(captionText)
-{
-    // http://www.html5rocks.com/en/tutorials/track/basics/
-    // https://www.iandevlin.com/blog/2015/02/javascript/dynamically-adding-text-tracks-to-html5-video
-    var video = document.querySelector('video');
-    var track = video.addTextTrack('captions', "English", "en");
-
-    //track.mode = "showing";
-    quick_and_dirty_vtt_or_srt_parser(captionText)
-        .map(function (cue)
-        {
-            track.addCue(cue);
-        });
-}
-
-function loadPlayer()
-{
-    buildMenu();
-    $('.afit-module-item')
-        .hide();
-}
-
-function parse_timestamp(s)
-{
-    var match = s.match(/^(?:([0-9]{2,}):)?([0-5][0-9]):([0-5][0-9][.,][0-9]{0,3})/);
-    if (match == null)
-    {
-        throw 'Invalid timestamp format: ' + s;
-    }
-    var hours = parseInt(match[1] || "0", 10);
-    var minutes = parseInt(match[2], 10);
-    var seconds = parseFloat(match[3].replace(',', '.'));
-    return seconds + 60 * minutes + 60 * 60 * hours;
-}
-
-function quick_and_dirty_vtt_or_srt_parser(vtt)
-{
-    var lines = vtt.trim()
-        .replace('\r\n', '\n')
-        .split(/[\r\n]/)
-        .map(function (line)
-        {
-            return line.trim();
-        });
-    var cues = [];
-    var start = null;
-    var end = null;
-    var payload = null;
-    for (var i = 0; i < lines.length; i++)
-    {
-        if (lines[i].indexOf('-->') >= 0)
-        {
-            var splitted = lines[i].split(/[ \t]+-->[ \t]+/);
-            if (splitted.length != 2)
-            {
-                throw 'Error when splitting "-->": ' + lines[i];
             }
+            videoPlayer.attr('src', videoFile);
+            videoPlayer[0].load();
+            videoPlayer.get(0)
+                .play();
+        });
 
-            // Already ignoring anything past the "end" timestamp (i.e. cue settings).
-            start = parse_timestamp(splitted[0]);
-            end = parse_timestamp(splitted[1]);
+
+    }
+
+    function loadCaption(captionText) {
+        // http://www.html5rocks.com/en/tutorials/track/basics/
+        // https://www.iandevlin.com/blog/2015/02/javascript/dynamically-adding-text-tracks-to-html5-video
+        var video = document.querySelector('video');
+        var track = video.addTextTrack('captions', "English", "en");
+
+        //track.mode = "showing";
+        quick_and_dirty_vtt_or_srt_parser(captionText)
+            .map(function (cue) {
+                track.addCue(cue);
+            });
+    }
+
+    function loadPlayer() {
+        buildMenu();
+        $('.afit-module-item')
+            .hide();
+    }
+
+    function parse_timestamp(s) {
+        var match = s.match(/^(?:([0-9]{2,}):)?([0-5][0-9]):([0-5][0-9][.,][0-9]{0,3})/);
+        if (match == null) {
+            throw 'Invalid timestamp format: ' + s;
         }
-        else if (lines[i] == '')
-        {
-            if (start && end)
-            {
-                var cue;
-                try
-                {
-                    cue = new window.VTTCue(start, end, payload);
-                }
-                catch (e)
-                {
-                    cue = new window.TextTrackCue(start, end, payload);
+        var hours = parseInt(match[1] || "0", 10);
+        var minutes = parseInt(match[2], 10);
+        var seconds = parseFloat(match[3].replace(',', '.'));
+        return seconds + 60 * minutes + 60 * 60 * hours;
+    }
+
+    function quick_and_dirty_vtt_or_srt_parser(vtt) {
+        var lines = vtt.trim()
+            .replace('\r\n', '\n')
+            .split(/[\r\n]/)
+            .map(function (line) {
+                return line.trim();
+            });
+        var cues = [];
+        var start = null;
+        var end = null;
+        var payload = null;
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].indexOf('-->') >= 0) {
+                var splitted = lines[i].split(/[ \t]+-->[ \t]+/);
+                if (splitted.length != 2) {
+                    throw 'Error when splitting "-->": ' + lines[i];
                 }
 
-                cues.push(cue);
-                start = null;
-                end = null;
+                // Already ignoring anything past the "end" timestamp (i.e. cue settings).
+                start = parse_timestamp(splitted[0]);
+                end = parse_timestamp(splitted[1]);
+            } else if (lines[i] == '') {
+                if (start && end) {
+                    var cue;
+                    try {
+                        cue = new window.VTTCue(start, end, payload);
+                    } catch (e) {
+                        cue = new window.TextTrackCue(start, end, payload);
+                    }
 
-                payload = null;
+                    cues.push(cue);
+                    start = null;
+                    end = null;
+
+                    payload = null;
+                }
+            } else if (start && end) {
+                if (payload == null) {
+                    payload = lines[i];
+                } else {
+                    payload += '\n' + lines[i];
+                }
             }
         }
-        else if (start && end)
-        {
-            if (payload == null)
-            {
-                payload = lines[i];
+        return cues;
+    }
+
+    function loadVideoPlayer() {}
+
+    $(document)
+        .ready(loadPlayer());
+
+    function getHoverCoordinates(e) {
+        moduleTip.style.visibility = 'visible';
+
+        var posX = 0,
+            posY = 0,
+            imgPos = findPosition(e.target);
+
+        if (!e) {
+            var e = window.event;
+        }
+
+        if (e.pageX) {
+            posX = e.pageX;
+        } else if (e.clientX) {
+            posX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        }
+
+        posX = posX - imgPos[0];
+
+        //set location of the tooltip based on the actual mouse position
+        moduleTip.style.left = e.pageX + 40 + 'px';
+        moduleTip.style.top = e.pageY - 45 + 'px';
+
+        moduleTip.innerHTML = e.target.desc;
+    }
+
+    function clearHoverInterval(e) {
+        moduleTip.style.visibility = 'hidden';
+    }
+
+    function findPosition(elem) {
+        //determine if element has a parent and loop through parents to total the offset
+        if (typeof (elem.offsetParent) != 'undefined') {
+            for (var posX = 0; elem; elem = elem.offsetParent) {
+                posX += elem.offsetLeft;
             }
-            else
-            {
-                payload += '\n' + lines[i];
-            }
+
+            return [posX];
+        } else {
+            return [elem.x];
         }
     }
-    return cues;
-}
-
-function loadVideoPlayer()
-{}
-
-$(document)
-    .ready(loadPlayer());
-
 </script>
