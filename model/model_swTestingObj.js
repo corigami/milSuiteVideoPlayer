@@ -1,4 +1,4 @@
-    var LESSONS = [{
+   var LESSONS = [{
             title: "Intro to Software Testing",
             module: [{
                     text: "Purpose of Software Testing",
