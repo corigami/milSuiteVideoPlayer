@@ -33,12 +33,12 @@
                 milTube: "14534",
                 description: ""
             }, {
-                text: "Strategic Leadership Systems",
+                text: "Strategic Leadership Systems 1",
                 link: "12142016-143605-1795483653-1-600.mp4",
                 milTube: "14537",
                 description: "Vision and Values"
             }, {
-                text: "Strategic Leadership Systems",
+                text: "Strategic Leadership Systems 2",
                 link: "12202016-122523-15967316-1-600.mp4",
                 milTube: "14639",
                 description: "Role of Leadership"
@@ -151,7 +151,7 @@
             }]
         },
         {
-            title: "Change Management and Implementation",
+            title: "Change Management <br>and Implementation",
             module: [{
                 text: "Change Management Introduction",
                 link: "09082016-092419-223729958-1-600.mp4",
